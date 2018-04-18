@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard';
 import Grid from 'material-ui/Grid';
-import SearchResults from '../../DummyData/SearchResults';
+//import SearchResults from '../../DummyData/SearchResults';
 import VideoIcon from 'material-ui-icons/OndemandVideo';
 
 
@@ -9,15 +9,15 @@ class VideoList extends Component {
     render() {
 
         let noResults = null;
+        console.log(this.props.videos.length)
         
-        const cardList = SearchResults.items.map((item, i) => {
+        const cardList = this.props.videos.map((item, i) => {
             return (
                 <Grid item key={i}>
                     <VideoCard openPreviewDialog={this.props.openPreviewDialog}  videoInfo={item} />
                 </Grid>
                 )
         });
-
         if(cardList.length ===0){
             noResults =  <VideoIcon  color="disabled" style={{paddingTop:100, fontSize:500}}/>;
         }

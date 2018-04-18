@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import * as actionCreators from './store/actions/actions';
+
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -26,7 +29,8 @@ class App extends Component {
   state = {
     showPreviewDialog: false,
     previewVideoInfo: null,
-    showSettingsDialog: false
+    showSettingsDialog: false,
+    searchTerm:''
   };
 
   openPreviewDialog = (videoInfo) => {
@@ -68,6 +72,10 @@ class App extends Component {
     });
   }
 
+  handleSearchChange = (e) => {
+    this.setState({ searchTerm: e.target.value });
+  }
+  
   render() {
 
     const { classes } = this.props;
@@ -83,9 +91,17 @@ class App extends Component {
               placeholder="Search YouTube"
               className={classes.textField}
               margin="normal"
+              onChange={this.handleSearchChange}
+              onKeyPress={(ev) => {
+                console.log(`Pressed keyCode ${ev.key}`);
+                if (ev.key === 'Enter') {
+                  this.props.onSearch(this.state.searchTerm);
+                  ev.preventDefault();
+                }
+              }}
+
             />
           </Grid>
-
 
           <Grid xs={2} style={{ textAlign: 'right' }} item>
             <IconButton >
@@ -95,11 +111,8 @@ class App extends Component {
         </Grid>
 
         <Grid container spacing={8}>
-
-          <VideoList openPreviewDialog={this.openPreviewDialog.bind(this)} />
+          <VideoList videos={this.props.searchResults} openPreviewDialog={this.openPreviewDialog.bind(this)} />
         </Grid>
-
-
 
         <Snackbar
           anchorOrigin={{
@@ -120,4 +133,16 @@ App.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(App);
+const mapStateToProps = state => {
+  return {
+     searchResults: state.search.searchResults
+  }
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+      onSearch: (searchTerm) => dispatch(actionCreators.searchYoutube(searchTerm)),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));

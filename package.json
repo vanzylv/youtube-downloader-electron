@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4",
+    "axios": "^0.18.0",
     "material-ui": "^1.0.0-beta.40",
     "material-ui-icons": "^1.0.0-beta.36",
-    "react-youtube": "^7.5.0"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "react-youtube": "^7.5.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
   },
   "homepage": "./",
   "main": "src/electron-starter.js",
@@ -26,7 +30,8 @@
   },
   "devDependencies": {
     "electron": "^1.8.4",
-    "electron-builder": "^20.8.1"
+    "electron-builder": "^20.8.1",
+    "electron-devtools-installer": "^2.2.3"
   },
   "build": {
     "appId": "com.electron.electron-with-create-react-app",

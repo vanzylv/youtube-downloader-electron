@@ -7,13 +7,18 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = require('electron-devtools-installer');
+
+
+
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
 function createWindow() {
     // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 800, height: 600 })
+    mainWindow = new BrowserWindow({ width: 1400, height: 850 })
 
     // load the index.html of the app.
     const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -21,10 +26,10 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     });
-    mainWindow.loadURL('http://localhost:3000');
+    mainWindow.loadURL(startUrl);
 
     // Open the DevTools.
-    // mainWindow.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -33,7 +38,17 @@ function createWindow() {
         // when you should delete the corresponding element.
         mainWindow = null
     })
+
 }
+
+app.on('ready', () => {
+    [REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS].forEach(extension => {
+      installExtension(extension)
+          .then((name) => console.log(`Added Extension: ${name}`))
+          .catch((err) => console.log('An error occurred: ', err));
+    });
+});
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
