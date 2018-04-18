@@ -7,10 +7,8 @@ export const searchResults = (searchTerm) => {
     }
 }
 
-export const searchYoutube = ( res ) => {
+export const searchYoutube = (res) => {
     return dispatch => {
-
-            dispatch(searchResults(res));
-
+        dispatch(searchResults(res));
     }
 };

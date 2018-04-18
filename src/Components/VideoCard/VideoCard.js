@@ -7,10 +7,7 @@ import red from 'material-ui/colors/red';
 import DownloadIcon from 'material-ui-icons/FileDownload';
 import PlayIcon from 'material-ui-icons/PlayArrow';
 import { formatDate, trunc, lower } from '../../Utils/Utils';
-import Tooltip from 'material-ui/Tooltip';
 import Button from 'material-ui/Button';
-import PreviewDialog from '../PreviewDialog/PreviewDialog';
-
 
 const styles = theme => ({
   card: {
@@ -71,12 +68,9 @@ class VideoCard extends React.Component {
           <CardMedia
             className={classes.media}
             image={this.props.videoInfo.snippet.thumbnails.high.url}
-            
           >
           <Button onClick={() => this.props.openPreviewDialog(this.props.videoInfo)} size="small" className={classes.button} variant="flat" 
-                style={{top:140,left:255,color:'white',backgroundColor:'red', opacity:0.5}}
-                
-                >
+                style={{top:140,left:255,color:'white',backgroundColor:'red', opacity:0.5}}>
                 <PlayIcon className={classes.rightIcon} />
             </Button>
           </CardMedia>
@@ -86,12 +80,10 @@ class VideoCard extends React.Component {
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} >
-          
             <Button size="small" className={classes.button} variant="flat" color="primary">
               download
               <DownloadIcon className={classes.rightIcon} />
             </Button>
-            
           </CardActions>
          </Card>
       </div>

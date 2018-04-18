@@ -8,11 +8,9 @@ import Grid from 'material-ui/Grid';
 import TextField from 'material-ui/TextField';
 import IconButton from 'material-ui/IconButton';
 import SettingsIcon from 'material-ui-icons/Settings';
-import InfoOutline from 'material-ui-icons/InfoOutline';
 import VideoList from './Components/VideoList/VideoList';
 import PreviewDialog from './Components/PreviewDialog/PreviewDialog';
 import SettingsDialog from './Components/SettingsDialog/SettingsDialog';
-import VideoIcon from 'material-ui-icons/OndemandVideo';
 import Snackbar from 'material-ui/Snackbar';
 
 const styles = theme => ({
@@ -34,8 +32,6 @@ class App extends Component {
   };
 
   openPreviewDialog = (videoInfo) => {
-    console.log('Preview Dialog Open', videoInfo)
-
     this.setState({
       showPreviewDialog: true,
       previewVideoInfo: videoInfo,
@@ -44,8 +40,6 @@ class App extends Component {
   }
 
   closePreviewDialog = () => {
-
-    console.log('Close preview dialog')
     this.setState({
       showPreviewDialog: false,
       previewVideoInfo: null,
@@ -55,7 +49,6 @@ class App extends Component {
   }
 
   closeSettingsDialog = () => {
-    console.log('Close settings dialog')
     this.setState({
       showPreviewDialog: false,
       previewVideoInfo: null,
@@ -64,7 +57,6 @@ class App extends Component {
   }
 
   openSettingsDialog = () => {
-    console.log('Open settings dialog')
     this.setState({
       showPreviewDialog: false,
       previewVideoInfo: null,
@@ -77,7 +69,7 @@ class App extends Component {
   }
   
   render() {
-
+    
     const { classes } = this.props;
 
     return (
@@ -99,7 +91,6 @@ class App extends Component {
                   ev.preventDefault();
                 }
               }}
-
             />
           </Grid>
 
@@ -123,7 +114,6 @@ class App extends Component {
           autoHideDuration={6000}
           message="Download started"
         />
-
       </div>
     );
   }

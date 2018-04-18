@@ -14,10 +14,10 @@ export function formatDate(date) {
   return day + ' ' + monthNames[monthIndex] + ' ' + year;
 }
 
-export function trunc(n,str){
-  return str.substr(0,n-1)+(str.length>n?'...':'');
+export function trunc(n, str) {
+  return str.substr(0, n - 1) + (str.length > n ? '...' : '');
 }
 
-export function lower(str){
+export function lower(str) {
   return str.toLowerCase();
 }

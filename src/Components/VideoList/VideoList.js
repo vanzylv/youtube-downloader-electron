@@ -4,10 +4,9 @@ import Grid from 'material-ui/Grid';
 //import SearchResults from '../../DummyData/SearchResults';
 import VideoIcon from 'material-ui-icons/OndemandVideo';
 
-
 class VideoList extends Component {
+    
     render() {
-
         let noResults = null;
         console.log(this.props.videos.length)
         

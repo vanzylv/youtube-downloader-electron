@@ -9,9 +9,9 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SEARCH_YOUTUBE:
             return state;
+        default:
+            return state;
     }
-
-    return state;
 
 }
 
