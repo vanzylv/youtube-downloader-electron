@@ -28,7 +28,7 @@ class PreviewDialog extends React.Component {
                 maxWidth='md'
             >
                 <DialogTitle >
-                    {this.props.videoInfo ? this.props.videoInfo.snippet.title : ''}
+                    {this.props.videoInfo ? this.props.videoInfo.title : ''}
                 </DialogTitle>
                 <DialogContent>
                     <Grid container spacing={8}>
@@ -40,7 +40,7 @@ class PreviewDialog extends React.Component {
                         </Grid>
                         <Grid xs={12} item>
                             <DialogContentText>
-                                {this.props.videoInfo ? this.props.videoInfo.snippet.description : ''}
+                                {this.props.videoInfo ? this.props.videoInfo.description : ''}
                             </DialogContentText>
                         </Grid>
                     </Grid>

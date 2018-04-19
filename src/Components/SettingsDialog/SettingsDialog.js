@@ -9,6 +9,10 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
 
+const electronApp = window.require('electron').remote.app;
+
+
+
 function Transition(props) {
     return <Slide direction="up" {...props} />;
 }
@@ -16,6 +20,9 @@ function Transition(props) {
 class SettingsDialog extends Component {
 
     render() {
+
+
+
         return (
             <Dialog
                 open={this.props.show}
@@ -34,12 +41,11 @@ class SettingsDialog extends Component {
                     <TextField
                         id="name"
                         label="Save my videos here"
-                        value="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+                        value={electronApp.getPath('videos')}
                         margin="normal"
                         fullWidth
                     />
                     <Typography>
-                        <p>Help make youtube-dl-electron better : </p>
                         <a href="https://github.com/vanzylv/youtube-dl-gui-v2">https://github.com/vanzylv/youtube-dl-gui-v2</a>
                     </Typography>
                 </DialogContent>

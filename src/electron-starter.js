@@ -17,8 +17,8 @@ const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = req
 let mainWindow
 
 function createWindow() {
-    // Create the browser window.
-    mainWindow = new BrowserWindow({ width: 1400, height: 850 })
+
+    mainWindow = new BrowserWindow({ width: 1400, height: 850,webPreferences: {webSecurity: false} })
 
     // load the index.html of the app.
     const startUrl = process.env.ELECTRON_START_URL || url.format({

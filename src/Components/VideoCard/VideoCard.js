@@ -8,6 +8,8 @@ import DownloadIcon from 'material-ui-icons/FileDownload';
 import PlayIcon from 'material-ui-icons/PlayArrow';
 import { formatDate, trunc, lower } from '../../Utils/Utils';
 import Button from 'material-ui/Button';
+import {connect} from 'react-redux';
+import * as actionCreators from '../../store/actions/actions';
 
 const styles = theme => ({
   card: {
@@ -62,12 +64,12 @@ class VideoCard extends React.Component {
               subheader: classes.cardHeaderText
             }}
             className={classes.cardHeader}
-            title={lower(trunc(45, this.props.videoInfo.snippet.title))}
-            subheader={formatDate(new Date(this.props.videoInfo.snippet.publishedAt))}
+            title={lower(trunc(45, this.props.videoInfo.title))}
+            subheader={formatDate(new Date(this.props.videoInfo.publishedAt))}
           />
           <CardMedia
             className={classes.media}
-            image={this.props.videoInfo.snippet.thumbnails.high.url}
+            image={this.props.videoInfo.thumbnails.high.url}
           >
           <Button onClick={() => this.props.openPreviewDialog(this.props.videoInfo)} size="small" className={classes.button} variant="flat" 
                 style={{top:140,left:255,color:'white',backgroundColor:'red', opacity:0.5}}>
@@ -76,11 +78,11 @@ class VideoCard extends React.Component {
           </CardMedia>
           <CardContent className={classes.descriptionBlock}>
             <Typography component="p">
-            {trunc(170,this.props.videoInfo.snippet.description)}
+            {trunc(170,this.props.videoInfo.description)}
             </Typography>
           </CardContent>
           <CardActions className={classes.actions} >
-            <Button size="small" className={classes.button} variant="flat" color="primary">
+            <Button onClick={() => this.props.downloadVideo(this.props.videoInfo)} size="small" className={classes.button} variant="flat" color="primary">
               download
               <DownloadIcon className={classes.rightIcon} />
             </Button>
@@ -95,4 +97,12 @@ VideoCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(VideoCard);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        downloadVideo: (videoId) => dispatch(actionCreators.downloadVideo(videoId)),
+    }
+};
+
+export default connect(null, mapDispatchToProps)(withStyles(styles)(VideoCard));
+
