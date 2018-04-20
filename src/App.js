@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actionCreators from './store/actions/actions';
-
 import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -11,8 +10,10 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import VideoList from './Components/VideoList/VideoList';
 import PreviewDialog from './Components/PreviewDialog/PreviewDialog';
 import SettingsDialog from './Components/SettingsDialog/SettingsDialog';
-import Snackbar from 'material-ui/Snackbar';
 import LoadingBar from 'react-redux-loading-bar';
+import IconSearch from 'material-ui-icons/Search';
+import { InputAdornment } from 'material-ui/Input';
+
 
 const styles = theme => ({
     root: {
@@ -83,6 +84,8 @@ class App extends Component {
                 <Grid container spacing={8}>
                     <Grid xs={10} item>
                         <LoadingBar/>
+
+
                         <TextField style={{paddingLeft: '25px', width: '500px'}}
                                    placeholder="Search YouTube"
                                    className={classes.textField}
@@ -95,7 +98,16 @@ class App extends Component {
                                            ev.preventDefault();
                                        }
                                    }}
+                                   InputProps={{
+                                    startAdornment: (
+                                      <InputAdornment position="start">
+                                        <IconSearch />
+                                      </InputAdornment>
+                                    ),
+                                  }}
+                                autoFocus
                         />
+                        
                     </Grid>
 
                     <Grid xs={2} style={{textAlign: 'right'}} item>
@@ -109,15 +121,6 @@ class App extends Component {
                     <VideoList videos={this.props.searchResults} openPreviewDialog={this.openPreviewDialog.bind(this)}/>
                 </Grid>
 
-                {/*<Snackbar*/}
-                    {/*anchorOrigin={{*/}
-                        {/*vertical: 'bottom',*/}
-                        {/*horizontal: 'left'*/}
-                    {/*}}*/}
-                    {/*open={true}*/}
-                    {/*autoHideDuration={6000}*/}
-                    {/*message="Download started"*/}
-                {/*/>*/}
             </div>
         );
     }

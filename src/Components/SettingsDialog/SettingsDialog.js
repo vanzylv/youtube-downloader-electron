@@ -9,9 +9,9 @@ import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
 
-const electronApp = window.require('electron').remote.app;
-
-
+const electronApp = window.require('electron').remote;
+const electronConfig = window.require('electron-config');
+const config = new electronConfig();
 
 function Transition(props) {
     return <Slide direction="up" {...props} />;
@@ -19,9 +19,21 @@ function Transition(props) {
 
 class SettingsDialog extends Component {
 
+    state = {
+      downloadPath : config.get('downloadPath') || electronApp.app.getPath('videos')
+    };
+
+    saveDialogSettings = () => {
+        config.set('downloadPath', this.state.downloadPath);
+        this.props.handleClose();
+    };
+
+    handleChange = (e) => {
+        this.setState({downloadPath : e.target.value});
+
+    };
+
     render() {
-
-
 
         return (
             <Dialog
@@ -41,16 +53,17 @@ class SettingsDialog extends Component {
                     <TextField
                         id="name"
                         label="Save my videos here"
-                        value={electronApp.getPath('videos')}
+                        value={this.state.downloadPath}
+                        onChange={this.handleChange}
                         margin="normal"
                         fullWidth
                     />
                     <Typography>
-                        <a href="https://github.com/vanzylv/youtube-dl-gui-v2">https://github.com/vanzylv/youtube-dl-gui-v2</a>
+                        <a href="https://github.com/vanzylv/youtube-downloader-electron">https://github.com/vanzylv/youtube-downloader-electron</a>
                     </Typography>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={this.props.handleClose} color="primary">
+                    <Button onClick={this.saveDialogSettings} color="primary">
                         save
                 </Button>
                     <Button onClick={this.props.handleClose} color="primary">

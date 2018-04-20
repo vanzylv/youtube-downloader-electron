@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard';
 import Grid from 'material-ui/Grid';
-//import SearchResults from '../../DummyData/SearchResults';
 import VideoIcon from 'material-ui-icons/OndemandVideo';
 
 class VideoList extends Component {

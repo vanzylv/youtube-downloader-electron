@@ -14,9 +14,22 @@ var opts = {
 
 
 export const SEARCH_YOUTUBE = 'SEARCH_YOUTUBE';
-export const DOWNLOAD_VIDEO_COMPLETE = 'DOWNLOAD_VIDEO_COMPLETE';
-export const DOWNLOAD_VIDEO_START = 'DOWNLOAD_VIDEO_START';
+export const VIDEO_DOWNLOADING = 'VIDEO_DOWNLOADING';
+export const VIDEO_DOWNLOAD_COMPLETE = 'VIDEO_DOWNLOAD_COMPLETE';
 
+export const videoDownloading = (videoId) => {
+    return {
+        type: VIDEO_DOWNLOADING,
+        videoId: videoId
+    }
+}
+
+export const videoDownloadComplete = (videoId) => {
+    return {
+        type: VIDEO_DOWNLOAD_COMPLETE,
+        videoId: videoId
+    }
+}
 
 export const searchResults = (results) => {
     return {
@@ -30,6 +43,7 @@ export const searchYoutube = (searchTerm) => {
         dispatch(showLoading())
         search(searchTerm, opts).then(results => {
             dispatch(hideLoading())
+            console.log('search results',results);
             dispatch(searchResults(results));
         }).catch(err => {
             if (err) return console.log(err, '<<<');
@@ -40,17 +54,20 @@ export const searchYoutube = (searchTerm) => {
 export const downloadVideo = (videoInfo) => {
     return dispatch => {
 
-        dispatch(showLoading())
 
-        let video = ytdl(videoInfo.link);
-        video.pipe(fs.createWriteStream(electronApp.app.getPath('videos') + '/' + videoInfo.title + '.mp4'));
+        dispatch(videoDownloadComplete(videoInfo.id));
 
-        video.on('error', (error) => {
-            console.log(error);
-        });
+        //dispatch(showLoading())
 
-        video.on('end', () => {
-            dispatch(hideLoading())
-        });
+        //let video = ytdl(videoInfo.link);
+        //video.pipe(fs.createWriteStream(electronApp.app.getPath('videos') + '/' + videoInfo.title + '.mp4'));
+
+        // video.on('error', (error) => {
+        //     console.log(error);
+        // });
+
+        // video.on('end', () => {
+        //     //dispatch(hideLoading())
+        // });
     }
 };
