@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import DownloadIcon from 'material-ui-icons/FileDownload';
+import  CheckCircle from 'material-ui-icons/CheckCircle'
 import PlayIcon from 'material-ui-icons/PlayArrow';
 import { formatDate, trunc, lower } from '../../Utils/Utils';
 import Button from 'material-ui/Button';
@@ -29,6 +30,13 @@ class VideoCard extends React.Component {
           variant="indeterminate"
           value={100}
         />
+
+    }else if(this.props.videosDownloaded.indexOf(this.props.videoInfo.id) !== -1){    
+      downloadButton =
+      <Button size="small" disabled className={classes.button} variant="flat" color="primary">
+        downloaded&nbsp;
+        <CheckCircle style={{color:'green'}} className={classes.rightIcon} />
+      </Button>;
 
     } else {
       downloadButton =
@@ -86,7 +94,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    videosCurrentlyDownloading: state.search.videosCurrentlyDownloading
+    videosCurrentlyDownloading: state.search.videosCurrentlyDownloading,
+    videosDownloaded :  state.search.videosDownloaded
   }
 }
 
