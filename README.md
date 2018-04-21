@@ -4,7 +4,7 @@
 
 
 <h1 align="center">
-  <img src="https://i.imgur.com/LmPP6r3.gifv" alt="Youtube downloader with Electron" width="200">
+  <img src="https://i.imgur.com/LmPP6r3.gif" alt="Youtube downloader with Electron" width="200">
   
 
 
