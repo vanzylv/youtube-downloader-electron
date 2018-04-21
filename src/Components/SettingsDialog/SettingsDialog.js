@@ -12,6 +12,8 @@ import Typography from 'material-ui/Typography'
 const electronApp = window.require('electron').remote;
 const electronConfig = window.require('electron-config');
 const config = new electronConfig();
+const fs = electronApp.require('fs');
+
 
 function Transition(props) {
     return <Slide direction="up" {...props} />;
@@ -20,16 +22,29 @@ function Transition(props) {
 class SettingsDialog extends Component {
 
     state = {
-      downloadPath : config.get('downloadPath') || electronApp.app.getPath('videos')
+        downloadPath: config.get('downloadPath'),
+        error:null,
+        errorText:null
     };
 
     saveDialogSettings = () => {
-        config.set('downloadPath', this.state.downloadPath);
-        this.props.handleClose();
+
+        try {
+            if(fs.lstatSync(this.state.downloadPath).isDirectory()){
+                config.set('downloadPath', this.state.downloadPath);
+                this.props.handleClose();
+            }
+        } catch (e) {
+            this.setState({error:true})
+            console.error(`Invalid diretory : ${this.state.downloadPath}`);
+        }
+
+        
     };
 
     handleChange = (e) => {
-        this.setState({downloadPath : e.target.value});
+        this.setState({error:null})
+        this.setState({ downloadPath: e.target.value });
 
     };
 
@@ -57,7 +72,11 @@ class SettingsDialog extends Component {
                         onChange={this.handleChange}
                         margin="normal"
                         fullWidth
+                        error={this.state.error}
+                        errortext="Test"
                     />
+
+
                     <Typography>
                         <a href="https://github.com/vanzylv/youtube-downloader-electron">https://github.com/vanzylv/youtube-downloader-electron</a>
                     </Typography>

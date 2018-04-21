@@ -1,5 +1,6 @@
 {
   "name": "youtube-downloader-electron",
+  "description": "Youtube downloader with Electron",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +16,7 @@
     "react-youtube": "^7.5.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
-    "youtube-search": "^1.1.0",
+    "simple-youtube-api": "^5.0.1",
     "ytdl-core": "^0.20.2"
   },
   "homepage": "./",

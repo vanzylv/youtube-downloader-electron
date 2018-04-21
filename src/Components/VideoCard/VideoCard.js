@@ -21,7 +21,7 @@ class VideoCard extends React.Component {
 
     if (this.props.videosCurrentlyDownloading.indexOf(this.props.videoInfo.id) !== -1) {
       downloadButton =
-      <div>   
+       
       <CircularProgress
           size={25}
           thickness={7}
@@ -30,11 +30,6 @@ class VideoCard extends React.Component {
           value={100}
         />
 
-        <Button onClick={() => this.props.downloadVideo(this.props.videoInfo)} size="small" className={classes.button} variant="flat" color="primary">
-          download
-          <DownloadIcon className={classes.rightIcon} />
-        </Button>;
-</div>
     } else {
       downloadButton =
         <Button onClick={() => this.props.downloadVideo(this.props.videoInfo)} size="small" className={classes.button} variant="flat" color="primary">
@@ -60,7 +55,7 @@ class VideoCard extends React.Component {
             image={this.props.videoInfo.thumbnails.high.url}
           >
             <Button onClick={() => this.props.openPreviewDialog(this.props.videoInfo)} size="small" className={classes.button} variant="flat"
-              style={{ top: 140, left: 255, color: 'white', backgroundColor: 'red', opacity: 0.5 }}>
+              style={{ top: 140, left: 284, color: 'white',borderColor:'white', backgroundColor: 'red', opacity: 0.9 }}>
               <PlayIcon className={classes.rightIcon} />
             </Button>
           </CardMedia>

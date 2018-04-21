@@ -2,14 +2,7 @@ import * as actionTypes from '../actions/actions';
 
 const initialState = {
     searchResults: [],
-    videosCurrentlyDownloading: [
-
-        "HNDCihroDf8",
-        "5aZI-jukT5E",
-        "MybjFHx_wfc",
-        "GZMz5_19HY4"
-
-    ]
+    videosCurrentlyDownloading: []
 };
 
 const reducer = (state = initialState, action) => {
