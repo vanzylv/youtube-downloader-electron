@@ -2,7 +2,13 @@
 
 ### Desktop App to search and download YouTube Videos
 
-[Imgur](https://i.imgur.com/Vro4UzL.png)
+
+<h1 align="center">
+  <img src="https://i.imgur.com/LmPP6r3.gifv" alt="Youtube downloader with Electron" width="200">
+  
+
+
+</h1>
 
 ### Built on
 
@@ -13,11 +19,11 @@
 
 
 
-### Futures
+### Features
  - [x] Search, Preview and Download Videos
  - [x] Download multiple videos at once
 
-### Future Ideas
+### Future Feature Ideas
  - [ ] Option to download Audio Only
  - [ ] Option to select video download quality
  - [ ] Scehdule Video Downloads
