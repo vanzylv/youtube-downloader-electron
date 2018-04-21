@@ -4,9 +4,9 @@ An attempt to teach myself React, Redux and Electron
 
 ### Desktop App to search and download YouTube Videos
 
-<h1 align="center">
+
   ![Youtube downloader with Electron](https://media.giphy.com/media/MUEYOP1iN8crmIrETi/giphy.gif)
-</h1>
+
 
 ### Built on
 
