@@ -3,7 +3,7 @@
 An attempt to teach myself React, Redux and Electron
 
 ### Desktop App to search and download YouTube Videos
-
+<div style="float:left">
 <img src="https://i.imgur.com/Tu4yVRn.png" width="120">
 
 <img src="https://i.imgur.com/Jr7rybd.png" width="120">
@@ -13,6 +13,7 @@ An attempt to teach myself React, Redux and Electron
 <img src="https://i.imgur.com/ORMi6hm.png" width="120">
 
 <img src="https://i.imgur.com/VWLuLou.png" width="120">
+</div>
 
 ### Built on
 
