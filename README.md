@@ -4,9 +4,8 @@
 
 
 <h1 align="center">
-  <img src="https://i.imgur.com/LmPP6r3.gif" alt="Youtube downloader with Electron" width="200">
   
-
+  ![Alt Text](https://i.imgur.com/LmPP6r3.gif)
 
 </h1>
 
