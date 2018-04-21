@@ -62,7 +62,7 @@ class VideoCard extends React.Component {
             className={classes.media}
             image={this.props.videoInfo.thumbnails.high.url}
           >
-            <Button onClick={() => this.props.openPreviewDialog(this.props.videoInfo)} size="small" className={classes.button} variant="flat"
+            <Button onClick={() => this.props.previewVideo(this.props.videoInfo)} size="small" className={classes.button} variant="flat"
               style={{ top: 140, left: 284, color: 'white',borderColor:'white', backgroundColor: 'red', opacity: 0.9 }}>
               <PlayIcon className={classes.rightIcon} />
             </Button>
@@ -89,6 +89,7 @@ VideoCard.propTypes = {
 const mapDispatchToProps = dispatch => {
   return {
     downloadVideo: (videoId) => dispatch(actionCreators.downloadVideo(videoId)),
+    previewVideo: (videoInfo) => dispatch(actionCreators.previewVideo(videoInfo))
   }
 };
 

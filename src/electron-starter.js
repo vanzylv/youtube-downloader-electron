@@ -9,8 +9,6 @@ const url = require('url')
 
 const { default: installExtension, REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS } = require('electron-devtools-installer');
 
-const electronConfig = require('electron-config');
-const config = new electronConfig();
 
 
 
@@ -20,7 +18,7 @@ let mainWindow
 
 function createWindow() {
 
-    mainWindow = new BrowserWindow({ width: 1400, height: 850, webPreferences: { webSecurity: false } })
+    mainWindow = new BrowserWindow({frame: false, width: 1150, height: 650,webPreferences: {webSecurity: false} })
 
     // load the index.html of the app.
     const startUrl = process.env.ELECTRON_START_URL || url.format({
@@ -31,7 +29,7 @@ function createWindow() {
     mainWindow.loadURL(startUrl);
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
@@ -45,22 +43,12 @@ function createWindow() {
 
 app.on('ready', () => {
     [REACT_DEVELOPER_TOOLS, REDUX_DEVTOOLS].forEach(extension => {
-        installExtension(extension)
-            .then((name) => console.log(`Added Extension: ${name}`))
-            .catch((err) => console.log('An error occurred: ', err));
+      installExtension(extension)
+          .then((name) => console.log(`Added Extension: ${name}`))
+          .catch((err) => console.log('An error occurred: ', err));
     });
 });
 
-app.on('ready', () => {
-
-    if (config.get('downloadPath') == null) {
-        console.log(`No download config set, applying OS video path ${electronApp.app.getPath('videos')}`);
-        config.set('downloadPath', app.getPath('videos'));
-    } else {
-        console.log(`Download directory config found : ${config.get('downloadPath')}`)
-    }
-
-})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

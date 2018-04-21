@@ -27,41 +27,32 @@ const styles = theme => ({
 class App extends Component {
 
     state = {
-        showPreviewDialog: false,
-        previewVideoInfo: null,
+        
         showSettingsDialog: false,
         searchTerm: ''
     };
 
     openPreviewDialog = (videoInfo) => {
+        
+        console.log(videoInfo,'preview from app')
+        
+        
         this.setState({
-            showPreviewDialog: true,
-            previewVideoInfo: videoInfo,
+        
             showSettingsDialog: false
         });
-    }
-
-    closePreviewDialog = () => {
-        this.setState({
-            showPreviewDialog: false,
-            previewVideoInfo: null,
-            showSettingsDialog: false
-        });
-
     }
 
     closeSettingsDialog = () => {
         this.setState({
-            showPreviewDialog: false,
-            previewVideoInfo: null,
+            
             showSettingsDialog: false
         });
     }
 
     openSettingsDialog = () => {
         this.setState({
-            showPreviewDialog: false,
-            previewVideoInfo: null,
+            
             showSettingsDialog: true
         });
     }
@@ -74,11 +65,12 @@ class App extends Component {
 
         const {classes} = this.props;
 
+
         return (
+            
             <div className={classes.root}>
 
-                <PreviewDialog show={this.state.showPreviewDialog} handleClose={this.closePreviewDialog.bind(this)}
-                               videoInfo={this.state.previewVideoInfo}/>
+                <PreviewDialog show={this.props.preview.showPreview} />
                 <SettingsDialog show={this.state.showSettingsDialog} handleClose={this.closeSettingsDialog.bind(this)}/>
 
                 <Grid container spacing={8}>
@@ -132,7 +124,8 @@ App.propTypes = {
 
 const mapStateToProps = state => {
     return {
-        searchResults: state.search.searchResults
+        searchResults: state.search.searchResults,
+        preview:state.search.preview
     }
 };
 

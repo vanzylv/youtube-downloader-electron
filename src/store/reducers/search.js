@@ -3,7 +3,11 @@ import * as actionTypes from '../actions/actions';
 const initialState = {
     searchResults: [],
     videosCurrentlyDownloading: [],
-    videosDownloaded: []
+    videosDownloaded: [],
+    preview: {
+        showPreview:false,
+        previewVideoInfo:null
+    }
 };
 
 const reducer = (state = initialState, action) => {
@@ -38,6 +42,31 @@ const reducer = (state = initialState, action) => {
                 videosDownloaded: videosDownloaded
             };
         }
+
+        case actionTypes.PREVIEW_VIDEO:{
+            
+            return {
+                ...state,
+                preview : {
+                    showPreview:true,
+                    previewVideoInfo:action.videoInfo
+                }
+            }
+
+        }
+
+        case actionTypes.CLOSE_REVIEW_DIALOG:{
+            
+            return {
+                ...state,
+                preview : {
+                    showPreview:false,
+                    previewVideoInfo:null
+                }
+            }
+
+        }
+
         default:
             return state;
     }

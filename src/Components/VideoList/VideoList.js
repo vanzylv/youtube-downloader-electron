@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import VideoCard from '../VideoCard/VideoCard';
 import Grid from 'material-ui/Grid';
-import VideoIcon from 'material-ui-icons/OndemandVideo';
+import VideoIcon from 'material-ui-icons/PlayCircleOutline';
 
 class VideoList extends Component {
     
@@ -17,7 +17,7 @@ class VideoList extends Component {
                 )
         });
         if(cardList.length ===0){
-            noResults =  <VideoIcon  color="disabled" style={{paddingTop:100, fontSize:500}}/>;
+            noResults =  <VideoIcon  color="primary" style={{paddingTop:150, fontSize:300}}/>;
         }
 
         console.log(cardList);
