@@ -5,7 +5,7 @@
 
 <h1 align="center">
   
-  ![Alt Text](https://i.imgur.com/LmPP6r3.gif)
+  ![Youtube downloader with Electron](https://media.giphy.com/media/lkzVelJhjBuuE6PmjU/giphy.gif)
 
 </h1>
 
