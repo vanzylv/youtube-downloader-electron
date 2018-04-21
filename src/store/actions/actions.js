@@ -66,9 +66,10 @@ export const searchYoutube = (searchTerm) => {
 
 export const downloadVideo = (videoInfo) => {
     return dispatch => {
-
+        let fileName = videoInfo.title.replace(/(?!\.[^.]+$)\.|[^\w.]+/g, '') + '.mp4';
+        console.log('Filename',fileName);
         let video = ytdl(videoInfo.id);
-        video.pipe(fs.createWriteStream(config.get('downloadPath') + '/' + videoInfo.title + '.mp4'));
+        video.pipe(fs.createWriteStream(config.get('downloadPath') + fileName));
         dispatch(videoDownloading(videoInfo.id));
 
         video.on('error', (error) => {

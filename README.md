@@ -4,9 +4,15 @@ An attempt to teach myself React, Redux and Electron
 
 ### Desktop App to search and download YouTube Videos
 
+<img src="https://i.imgur.com/Tu4yVRn.png" width="120">
 
-  ![Youtube downloader with Electron](https://media.giphy.com/media/MUEYOP1iN8crmIrETi/giphy.gif)
+<img src="https://i.imgur.com/Jr7rybd.png" width="120">
 
+<img src="https://i.imgur.com/tU9Uvpw.png" width="120">
+
+<img src="https://i.imgur.com/ORMi6hm.png" width="120">
+
+<img src="https://i.imgur.com/VWLuLou.png" width="120">
 
 ### Built on
 
