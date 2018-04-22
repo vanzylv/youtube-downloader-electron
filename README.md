@@ -32,6 +32,7 @@ With help from
 ### Features
  - [x] Search, Preview and Download Videos
  - [x] Download multiple videos at once
+ - [ ] Port to [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate)
  - [ ] Option to download Audio Only
  - [ ] Option to select video download quality
  - [ ] Scehdule Video Downloads
@@ -42,13 +43,9 @@ With help from
 ### Install and Run
 
 ```bash
-# Clone this repository
 git clone https://github.com/vanzylv/youtube-downloader-electron.git
-# Go into the repository
 cd youtube-downloader-electron
-# Install dependencies
 npm install
-# Run the app
 npm start
 ```
 
