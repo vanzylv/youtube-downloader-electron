@@ -13,7 +13,7 @@ let mainWindow
 
 function createWindow() {
 
-    mainWindow = new BrowserWindow({frame: false, width: 100, height: 650,webPreferences: {webSecurity: false} })
+    mainWindow = new BrowserWindow({frame: false, width: 1150, height: 650,webPreferences: {webSecurity: false} })
 
     // load the index.html of the app.
     const startUrl = url.format({
