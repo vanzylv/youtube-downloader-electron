@@ -1,7 +1,7 @@
 {
   "name": "youtube-downloader-electron",
   "description": "Youtube downloader with Electron",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
   "author": "vanzylv <vanzylv@gmail.com>",
   "dependencies": {
@@ -56,15 +56,6 @@
           "path": "/Applications"
         }
       ]
-    },
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
-    "win": {
-      "target": "squirrel"
     }
 
   }
