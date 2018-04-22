@@ -3,6 +3,7 @@
   "description": "Youtube downloader with Electron",
   "version": "0.1.0",
   "private": true,
+  "author": "vanzylv <vanzylv@gmail.com>",
   "dependencies": {
     "axios": "^0.18.0",
     "electron-config": "^1.0.0",
@@ -31,7 +32,8 @@
     "react-start": "BROWSER=none react-scripts start",
     "pack": "build --dir",
     "dist": "npm run build && build",
-    "postinstall": "install-app-deps"
+    "postinstall": "install-app-deps",
+    "dist-electron": "build"
   },
   "devDependencies": {
     "electron": "^1.8.4",
@@ -39,12 +41,32 @@
     "electron-devtools-installer": "^2.2.3"
   },
   "build": {
-    "appId": "com.electron.electron-with-create-react-app",
-    "win": {
-      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
+    "appId": "youtube-downloader-electron",
+    
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
     },
-    "directories": {
-      "buildResources": "public"
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "squirrel",
+      "icon": "build/icon.ico"
     }
+
   }
 }
