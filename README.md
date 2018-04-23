@@ -33,13 +33,14 @@ With help from
  - [x] Search, Preview and Download Videos
  - [x] Download multiple videos at once
  - [x] Port to [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate) for easier builds
+ - [x] Create Linux executable
  - [ ] Option to download Audio Only
  - [ ] Open Downloads folder in file explorer
  - [ ] Option to select video download quality
  - [ ] Scehdule Video Downloads
  - [ ] Implement Splash screen
  - [ ] Make additional call to get video length
- - [ ] Create Linux executable
+ 
 
 ### Mac and Windows Binaries
 
@@ -53,7 +54,7 @@ git clone https://github.com/vanzylv/youtube-downloader-electron.git
 cd youtube-downloader-electron
 ```
 
-Update the config.js file with your youtube api key
+Update the app/config.js file with your youtube api key
 
 ```bash
 npm install
