@@ -37,7 +37,7 @@ With help from
  - [ ] Option to download Audio Only
  - [ ] Open Downloads folder in file explorer
  - [ ] Option to select video download quality
- - [ ] Scehdule Video Downloads
+ - [ ] Schedule Video Downloads
  - [ ] Implement Splash screen
  - [ ] Make additional call to get video length
  
