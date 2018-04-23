@@ -57,7 +57,7 @@ Update the app/config.js file with your youtube api key
 
 ```bash
 npm install
-npm start
+npm run develop
 ```
 
 ### License
