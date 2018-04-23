@@ -44,8 +44,7 @@ With help from
 
 ### Mac and Windows Binaries
 
-[Mac](https://github.com/vanzylv/youtube-downloader-electron/releases/download/0.0.1/youtube-downloader-electron-0.0.1-mac.zip)
-[Windows](https://github.com/vanzylv/youtube-downloader-electron/releases/download/0.0.1/youtube-downloader-electron.Setup.0.0.1.exe)
+[Mac, Windows and Linux binaries](https://github.com/vanzylv/youtube-downloader-electron/releases/)
 
 ### Install and Run
 
