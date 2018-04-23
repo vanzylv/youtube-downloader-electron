@@ -8,8 +8,13 @@ import Slide from 'material-ui/transitions/Slide';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 import Typography from 'material-ui/Typography'
+import Tooltip from 'material-ui/Tooltip';
+import FolderOpen from 'material-ui-icons/FolderOpen'
+import IconButton from 'material-ui/IconButton';
 import electronConfig from 'electron-config';
 import fs from 'fs';
+import electronApp from 'electron';
+
 
 function Transition(props) {
     return <Slide direction="up" {...props} />;
@@ -19,30 +24,39 @@ class SettingsDialog extends Component {
 
     state = {
         downloadPath: config.get('downloadPath'),
-        error:null,
-        errorText:null
+        error: null,
+        errorText: null
     };
 
     saveDialogSettings = () => {
 
         try {
-            if(fs.lstatSync(this.state.downloadPath).isDirectory()){
+            if (fs.lstatSync(this.state.downloadPath).isDirectory()) {
                 config.set('downloadPath', this.state.downloadPath);
                 this.props.handleClose();
             }
         } catch (e) {
-            this.setState({error:true})
+            this.setState({ error: true })
             console.error(`Invalid diretory : ${this.state.downloadPath}`);
         }
 
-        
+
     };
 
     handleChange = (e) => {
-        this.setState({error:null})
+        this.setState({ error: null })
         this.setState({ downloadPath: e.target.value });
-
     };
+
+    openFolderSelectDialog = () => {
+
+        electronApp.remote.dialog.showOpenDialog({ properties: ['openDirectory'] },
+            (path) => {
+                if (path == null) return;
+                config.set('downloadPath', path[0]);
+                this.setState({ downloadPath: path[0] });
+            });
+    }
 
     render() {
 
@@ -67,12 +81,15 @@ class SettingsDialog extends Component {
                         value={this.state.downloadPath}
                         onChange={this.handleChange}
                         margin="normal"
-                        fullWidth
+                        style={{ width: 300 }}
                         error={this.state.error}
-                        errortext="Test"
                     />
 
-
+                    
+                        <IconButton onClick={this.openFolderSelectDialog}>
+                            <FolderOpen  />
+                        </IconButton>
+                    
                     <Typography>
                         <a href="https://github.com/vanzylv/youtube-downloader-electron">https://github.com/vanzylv/youtube-downloader-electron</a>
                     </Typography>

@@ -12,7 +12,13 @@ import PreviewDialog from './components/PreviewDialog/PreviewDialog';
 import SettingsDialog from './components/SettingsDialog/SettingsDialog';
 import LoadingBar from 'react-redux-loading-bar';
 import IconSearch from 'material-ui-icons/Search';
+import FolderOpen from 'material-ui-icons/FolderOpen'
 import { InputAdornment } from 'material-ui/Input';
+import { shell } from 'electron';
+import electronConfig from 'electron-config';
+import Tooltip from 'material-ui/Tooltip';
+
+const config = new electronConfig();
 
 const styles = theme => ({
     root: {
@@ -44,13 +50,16 @@ class App extends Component {
 
     openSettingsDialog = () => {
         this.setState({
-
             showSettingsDialog: true
         });
     }
 
     handleSearchChange = (e) => {
         this.setState({ searchTerm: e.target.value });
+    }
+
+    openFileExplorer = () => {
+        shell.openItem(config.get('downloadPath'));
     }
 
     render() {
@@ -87,9 +96,16 @@ class App extends Component {
                         />
                     </Grid>
                     <Grid xs={2} style={{ textAlign: 'right' }} item>
-                        <IconButton>
-                            <SettingsIcon onClick={this.openSettingsDialog.bind(this)} />
-                        </IconButton>
+                        <Tooltip id="tooltip-icon" title="Open download directory">
+                            <IconButton>
+                                <FolderOpen onClick={this.openFileExplorer.bind(this)} />
+                            </IconButton>
+                        </Tooltip>
+                        <Tooltip id="tooltip-icon" title="Settings">
+                            <IconButton>
+                                <SettingsIcon onClick={this.openSettingsDialog.bind(this)} />
+                            </IconButton>
+                        </Tooltip>
                     </Grid>
                 </Grid>
                 <Grid container spacing={8}>

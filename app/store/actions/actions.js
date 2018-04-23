@@ -65,7 +65,7 @@ export const downloadVideo = (videoInfo) => {
     return dispatch => {
         let fileName = videoInfo.title.replace(/(?!\.[^.]+$)\.|[^\w.]+/g, '') + '.mp4';
         let video = ytdl(videoInfo.id);
-        video.pipe(fs.createWriteStream(config.get('downloadPath') + fileName));
+        video.pipe(fs.createWriteStream(config.get('downloadPath') + '/' +  fileName));
         dispatch(videoDownloading(videoInfo.id));
 
         video.on('error', (error) => {
