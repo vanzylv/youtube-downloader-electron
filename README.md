@@ -34,8 +34,8 @@ With help from
  - [x] Download multiple videos at once
  - [x] Port to [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate) for easier builds
  - [x] Create Linux executable
+ - [x] Open Downloads folder in file explorer
  - [ ] Option to download Audio Only
- - [ ] Open Downloads folder in file explorer
  - [ ] Option to select video download quality
  - [ ] Schedule Video Downloads
  - [ ] Implement Splash screen
