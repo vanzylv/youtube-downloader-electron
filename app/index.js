@@ -18,13 +18,8 @@ const rootReducer = combineReducers({
   search: searchReducer
 });
 
-const composeEnhancers = (() => {
-  const compose_ = window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
-  return compose;
-})();
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
-
 
 if (config.get('downloadPath') == null){
   console.info(`No download config set, applying OS video path ${electronApp.remote.app.getPath('videos')}`);

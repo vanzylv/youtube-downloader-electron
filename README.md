@@ -34,12 +34,18 @@ With help from
  - [x] Download multiple videos at once
  - [x] Port to [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate) for easier builds
  - [x] Create Linux executable
- - [x] Open Downloads folder in file explorer
+ - [x] Open Downloads folder in file explorer, browse to download directory
+ 
+ ### Future feature ideas
+ - [x] Indicate download progress
+ - [ ] Indicate video length
+ - [ ] Ability to cancel download
  - [ ] Option to download Audio Only
  - [ ] Option to select video download quality
- - [ ] Schedule Video Downloads
- - [ ] Implement Splash screen
- - [ ] Make additional call to get video length
+ - [ ] Display recent searches
+ - [ ] Congiure search results count
+ - [ ] Electron application icon implementation
+ 
  
 
 ### Mac and Windows Binaries

@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actions';
+import update from 'immutability-helper';
 
 const initialState = {
     searchResults: [],
@@ -7,7 +8,8 @@ const initialState = {
     preview: {
         showPreview:false,
         previewVideoInfo:null
-    }
+    },
+    videoDownloadProgress:[]
 };
 
 const reducer = (state = initialState, action) => {
@@ -41,6 +43,25 @@ const reducer = (state = initialState, action) => {
                 videosCurrentlyDownloading: currentDownloadingVideos,
                 videosDownloaded: videosDownloaded
             };
+        }
+
+        case actionTypes.VIDEO_DOWNLOAD_PROGRESS:{
+            let videoDownloadProgress = [...state.videoDownloadProgress];
+            let index = videoDownloadProgress.findIndex(x => x.videoId == action.payload.videoId);
+
+            if(index === -1){
+                index = state.videoDownloadProgress.push(action.payload);
+                index--;
+            }
+
+            return update(state,{
+                videoDownloadProgress:{
+                    [index]: {
+                        percentage: {$set: action.payload.percentage}
+                     }    
+                }
+            })
+
         }
 
         case actionTypes.PREVIEW_VIDEO:{
