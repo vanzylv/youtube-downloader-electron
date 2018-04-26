@@ -4,15 +4,15 @@ An attempt to teach myself React, Redux and Electron
 
 ### Desktop App to search and download YouTube videos
 <div style="float:left">
-<img src="https://i.imgur.com/Tu4yVRn.png" width="300">
+<img src="https://i.imgur.com/Bj6jZ2k.png" width="300">
 
-<img src="https://i.imgur.com/Jr7rybd.png" width="300">
+<img src="https://i.imgur.com/qOfSE9Q.png" width="300">
 
-<img src="https://i.imgur.com/tU9Uvpw.png" width="300">
+<img src="https://i.imgur.com/DMw7Q1T.png" width="300">
 
-<img src="https://i.imgur.com/ORMi6hm.png" width="300">
+<img src="https://i.imgur.com/LSnoz77.png" width="300">
 
-<img src="https://i.imgur.com/VWLuLou.png" width="300">
+
 </div>
 
 ### Built on
@@ -37,7 +37,7 @@ With help from
  - [x] Open Downloads folder in file explorer, browse to download directory
  - [x] Indicate download progress
  - [x] Electron application icon implementation
- 
+
  ### Future feature ideas
  
  - [ ] Indicate video length
