@@ -38,13 +38,14 @@ With help from
  
  ### Future feature ideas
  - [x] Indicate download progress
+ - [x] Electron application icon implementation
  - [ ] Indicate video length
  - [ ] Ability to cancel download
  - [ ] Option to download Audio Only
  - [ ] Option to select video download quality
  - [ ] Display recent searches
  - [ ] Congiure search results count
- - [ ] Electron application icon implementation
+ 
  
  
 
