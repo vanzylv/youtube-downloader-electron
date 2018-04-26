@@ -30,14 +30,16 @@ class PreviewDialog extends React.Component {
         if (this.props.videoInfo == null) return null;
 
         return (
-            <Dialog
+            <Dialog style={{minHeight:500}}
                 open={this.props.show}
                 transition={Transition}
                 onClose={this.handleClose}
                 aria-labelledby="alert-dialog-slide-title"
                 aria-describedby="alert-dialog-slide-description"
                 autoscrollbodycontent="true"
-                maxWidth='md'>
+                maxWidth='md'
+              
+                >
                 <DialogTitle >
                     {this.props.videoInfo.title}
                 </DialogTitle>
