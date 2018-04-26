@@ -35,10 +35,11 @@ With help from
  - [x] Port to [electron-react-redux-boilerplate](https://github.com/jschr/electron-react-redux-boilerplate) for easier builds
  - [x] Create Linux executable
  - [x] Open Downloads folder in file explorer, browse to download directory
- 
- ### Future feature ideas
  - [x] Indicate download progress
  - [x] Electron application icon implementation
+ 
+ ### Future feature ideas
+ 
  - [ ] Indicate video length
  - [ ] Ability to cancel download
  - [ ] Option to download Audio Only
