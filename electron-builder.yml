@@ -25,13 +25,16 @@ dmg:
       y: 150
 
 mac:
+  icon: build/icons/icon.png
   target: dmg
   category: public.app-category.tools
 
 win:
+  icon: build/icons/icon.png
   target: nsis
 
 linux:
+  icon: build/icons/icon.png
   target:
     - deb
     - AppImage
