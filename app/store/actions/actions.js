@@ -72,7 +72,7 @@ export const searchYoutube = (searchTerm) => {
 export const downloadVideo = (videoInfo) => {
     return dispatch => {
         let fileName = videoInfo.title.replace(/(?!\.[^.]+$)\.|[^\w.]+/g, '') + '.mp4';
-        let video = ytdl(videoInfo.id);
+        let video = ytdl(videoInfo.id,{quality:'highestvideo'});
 
         video.pipe(fs.createWriteStream(config.get('downloadPath') + '/' + fileName));
         
