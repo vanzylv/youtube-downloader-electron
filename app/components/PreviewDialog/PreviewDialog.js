@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
 
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import Dialog, {
     DialogActions,
     DialogContent,
     DialogContentText,
     DialogTitle,
-} from 'material-ui/Dialog';
-import Slide from 'material-ui/transitions/Slide';
+} from '@material-ui/core/Dialog';
+import Slide from '@material-ui/core/transitions/Slide';
 import YouTube from 'react-youtube';
-import Grid from 'material-ui/Grid';
+import Grid from '@material-ui/core/Grid';
 
 function Transition(props) {
     return <Slide direction="up" {...props} />;
