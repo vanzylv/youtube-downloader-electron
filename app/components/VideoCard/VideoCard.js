@@ -1,19 +1,18 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
-import Card, { CardHeader, CardMedia, CardContent, CardActions } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import DownloadIcon from 'material-ui-icons/FileDownload';
-import CheckCircle from 'material-ui-icons/CheckCircle'
-import PlayIcon from 'material-ui-icons/PlayArrow';
+import { withStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import DownloadIcon from '@material-ui/icons/CloudDownload';
+import PlayIcon from '@material-ui/icons/PlayArrow';
 import { formatDate, trunc, lower } from '../../utils/utils';
-import Button from 'material-ui/Button';
+import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../store/actions/actions';
 import styles from './VideoCardStyles';
-import { CircularProgress } from 'material-ui/Progress';
-import { LinearProgress } from 'material-ui/Progress';
-import CompareArrows from 'material-ui-icons/CompareArrows'
+import LinearProgress from '@material-ui/core/LinearProgress';
+import {CardActions, CardContent, CardHeader, CardMedia} from '@material-ui/core';
 
 class VideoCard extends React.Component {
 
@@ -28,7 +27,7 @@ class VideoCard extends React.Component {
 
       downloadProgress = <div style={{ flexGrow: 1 }}>
         <LinearProgress color="secondary" variant="determinate" value={parseInt(videoDownloadProgressItem.percentage)} />
-      </div>
+      </div>;
 
       downloadButton =
         <Button size="small" disabled className={classes.button} variant="flat" color="primary">
@@ -37,7 +36,7 @@ class VideoCard extends React.Component {
 
     } else if (this.props.videosCurrentlyDownloading.indexOf(this.props.videoInfo.id) !== -1) {
 
-      downloadProgress = <div style={{ flexGrow: 1 }}><LinearProgress color="secondary" variant="indeterminate" value={100} /></div>
+      downloadProgress = <div style={{ flexGrow: 1 }}><LinearProgress color="secondary" variant="indeterminate" value={100} /></div>;
 
       downloadButton =
         <Button size="small" disabled className={classes.button} variant="flat" color="primary">
@@ -103,7 +102,7 @@ const mapDispatchToProps = dispatch => {
   return {
     downloadVideo: (videoId) => dispatch(actionCreators.downloadVideo(videoId)),
     previewVideo: (videoInfo) => dispatch(actionCreators.previewVideo(videoInfo))
-  }
+  };
 };
 
 const mapStateToProps = state => {
@@ -111,8 +110,8 @@ const mapStateToProps = state => {
     videosCurrentlyDownloading: state.search.videosCurrentlyDownloading,
     videosDownloaded: state.search.videosDownloaded,
     videoDownloadProgress: state.search.videoDownloadProgress
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(VideoCard));
 

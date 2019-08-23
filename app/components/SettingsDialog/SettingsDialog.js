@@ -1,19 +1,12 @@
 import React, { Component } from 'react';
-import Dialog, {
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-} from '@material-ui/core/Dialog';
-import Slide from '@material-ui/core/transitions/Slide';
+import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-import Tooltip from 'material-ui/Tooltip';
 import FolderOpen from '@material-ui/icons/FolderOpen';
-import {IconButton} from '@material-ui/icons';
-import electronConfig from 'electron-config';
 import fs from 'fs';
 import electronApp from 'electron';
+import {DialogActions, DialogContent, DialogTitle, IconButton, Slide} from '@material-ui/core';
 
 
 function Transition(props) {

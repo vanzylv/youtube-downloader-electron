@@ -36,7 +36,7 @@ class App extends Component {
       searchTerm: ''
     };
 
-    openPreviewDialog = (videoInfo) => {
+    openPreviewDialog = () => {
       this.setState({
         showSettingsDialog: false
       });

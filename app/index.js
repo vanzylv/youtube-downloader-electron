@@ -25,7 +25,7 @@ if (config.get('downloadPath') == null){
   console.info(`No download config set, applying OS video path ${electronApp.remote.app.getPath('videos')}`);
   config.set('downloadPath', electronApp.remote.app.getPath('videos'));
 }else{
-  console.info(`Download directory config found : ${config.get('downloadPath')}`)
+  console.info(`Download directory config found : ${config.get('downloadPath')}`);
 }
 
 const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
